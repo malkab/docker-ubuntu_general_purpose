@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEBIAN_FRONTEND noninteractive
+export DEBIAN_FRONTEND=noninteractive
 
 apt-get update
 
@@ -8,7 +8,7 @@ apt-get update
 apt-get install -y debconf-utils
 
 apt-get install -y \
-  libreadline5 \
+  readline-common \
   locales \
   tzdata
 
@@ -40,6 +40,7 @@ debconf-set-selections < /keyboard_selections.conf
 apt-get install -y \
   apt-utils \
   vim \
+  curl \
   mlocate
 
 apt-get -y upgrade
